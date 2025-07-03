@@ -1,6 +1,6 @@
 import 'package:covid19_tracker/Screen/state_detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'stateDetailScreen.dart'; // Make sure this import is correct
+import 'district_list_screen.dart'; // Make sure this import is correct
 
 class Globalstatsscreen extends StatefulWidget {
   @override
@@ -92,10 +92,10 @@ class _GlobalstatsscreenState extends State<Globalstatsscreen> {
                         MaterialPageRoute(
                           builder: (_) => StateDetailScreen(
                             stateName: state["name"],
-                            confirmed: state["count"].toString(),
-                            active: state["active"].toString(),
-                            recovered: state["recovered"].toString(),
-                            deaths: state["deaths"].toString(),
+                            confirmed: int.tryParse(state["count"].toString()) ?? 0,
+                            active: int.tryParse(state["active"].toString()) ?? 0,
+                            recovered: int.tryParse(state["recovered"].toString()) ?? 0,
+                            deaths: int.tryParse(state["deaths"].toString()) ?? 0,
                           ),
                         ),
                       );
